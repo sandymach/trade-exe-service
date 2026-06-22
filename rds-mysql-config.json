@@ -1,0 +1,16 @@
+{
+  "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+  "database.hostname": "database-1.c7me8euy81hb.eu-north-1.rds.amazonaws.com",
+  "database.port": "3306",
+  "database.user": "kafka_connect",
+  "database.password": "StrongPassword123",
+  "database.server.id": "10001",
+  "topic.prefix": "rds-mysql",
+  "database.include.list": "finadvdb",
+  "table.include.list": "finadvdb.portfolio",
+  "schema.history.internal.kafka.bootstrap.servers": "host.docker.internal:9092",
+  "schema.history.internal.kafka.topic": "schema-history.rds-mysql.portfolio",
+  "snapshot.mode": "initial",
+  "snapshot.locking.mode": "none",
+  "include.schema.changes": "false"
+}
