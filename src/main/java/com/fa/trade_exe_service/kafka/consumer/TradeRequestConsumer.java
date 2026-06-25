@@ -18,7 +18,7 @@ public class TradeRequestConsumer {
             groupId = "trade-execution-group")
     public void consume(
             TradeRequestEvent event) {
-
+        System.out.println("Trade request received "+event);
         service.processTrade(event);
     }
 }

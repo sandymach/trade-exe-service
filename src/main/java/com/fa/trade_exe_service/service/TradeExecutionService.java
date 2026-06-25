@@ -38,8 +38,9 @@ public class TradeExecutionService {
                 .side(OrderSide.valueOf(request.getSide()))
                 .status(OrderStatus.PENDING)
                 .build();
+        System.out.println("TradeOrder received saving to db starting 1"+order);
 
-        repository.save(order);
+      //  repository.save(order);
 
         BrokerResponse brokerResponse =
                 brokerClient.executeTrade(request);
@@ -50,7 +51,7 @@ public class TradeExecutionService {
             order.setExecutedPrice(
                     brokerResponse.getExecutionPrice());
             order.setExecutedAt(LocalDateTime.now());
-
+            System.out.println("TradeOrder received saving to db 2 :  "+order);
             repository.save(order);
 
             TradeExecutedEvent event =

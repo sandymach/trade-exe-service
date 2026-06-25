@@ -4,8 +4,10 @@ services:
     container_name: kafka-connect
     ports:
       - "8083:8083"
+    networks:
+      - kafka-net
     environment:
-      BOOTSTRAP_SERVERS: host.docker.internal:9092
+      BOOTSTRAP_SERVERS: kafka:29092
       GROUP_ID: connect-cluster
 
       CONFIG_STORAGE_TOPIC: connect-configs
@@ -15,3 +17,6 @@ services:
       CONFIG_STORAGE_REPLICATION_FACTOR: 1
       OFFSET_STORAGE_REPLICATION_FACTOR: 1
       STATUS_STORAGE_REPLICATION_FACTOR: 1
+networks:
+  kafka-net:
+    external: true
